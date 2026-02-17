@@ -1,55 +1,102 @@
 <style>
+  .navbar {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .navbar-brand {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+
+  .nav-link {
+    font-weight: 500;
+    margin-left: 0.8rem;
+  }
+
   .search-btn {
     background-color: #fe424d;
     color: #fff;
     border-radius: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-inline: 1rem;
-  }
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #fff;
+    padding: 0.4rem 1rem;
+    border: none;
   }
 
-  .search-btn i {
-    display: inline;
-    margin-right: 0.5rem;
+  .search-btn:hover {
+    background-color: #e63c46;
+    color: #fff;
   }
 
   .search-inp {
     border-radius: 25px;
-    padding: 0.5rem 3rem;
-    font-size: 1rem;
+    padding: 0.4rem 1rem;
+    font-size: 0.9rem;
+    width: 220px;
+  }
+
+  .btn-add {
+    background-color: #000;
+    color: #fff;
+    border-radius: 20px;
+    padding: 0.4rem 1rem;
+  }
+
+  .btn-add:hover {
+    background-color: #333;
+    color: #fff;
   }
 </style>
 
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+<nav class="navbar navbar-expand-md bg-white border-bottom sticky-top shadow-sm">
+  <div class="container-fluid px-4">
+
+    <!-- Brand -->
+    <a class="navbar-brand d-flex align-items-center" href="/listings">
+      <i class="fa-regular fa-compass me-2 text-danger"></i>
+      <span>WanderLust</span>
+    </a>
+
+    <!-- Toggle -->
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+      <!-- Left Links -->
       <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
+        <a class="nav-link" href="/listings">
+          <i class="fa-solid fa-list me-1"></i> All Listings
+        </a>
+
+        <a class="nav-link" href="/listings/new">
+          <i class="fa-solid fa-plus me-1"></i> Add Listing
+        </a>
       </div>
-      <!-- <div class="navbar-nav ms-auto">
+
+      <!-- Center Search -->
+      <div class="navbar-nav mx-auto">
         <form class="d-flex" role="search">
-          <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations">
-          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+          <input class="form-control me-2 search-inp"
+            type="search"
+            placeholder="Search destinations...">
+          <button class="search-btn" type="submit">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
         </form>
-      </div> -->
-      <div class="navbar-nav ms-auto">
-        <a class="nav-link" href="/listings/new">Rent Home</a>
+      </div>
+
+      <!-- Right Auth -->
+      <div class="navbar-nav ms-auto align-items-center">
         <% if(!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
+          <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+          <a class="nav-link" href="/login"><b>Login</b></a>
         <% } else { %>
-        <a class="nav-link" href="/logout"><b>Logout</b></a>
+          <a class="nav-link" href="/logout"><b>Logout</b></a>
         <% } %>
       </div>
+
     </div>
   </div>
 </nav>
